@@ -2,22 +2,116 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="./static/bootstrap.min.css">
+    <!-- <script type="text/javascript" src="./static/reg.js"></script> -->
+       
 </head>
 <body>
-<div>
-    <h3>Add Students</h3>
-</div>
-<div>
-    <form action="#" th:action="@{/users/add}" th:object="${user}" method="post">
-        <label for="firstName">First Name: </label> <input type="text" id="firstName" th:field="*{firstName}"><span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span><br>
-        <label for="lastName">Last Name: </label> <input type="text" id="lastName" th:field="*{lastName}"><span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span><br>
-        <label for="address">Address: </label> <input type="text" id="address" th:field="*{address}"><span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span><br>
-        <label for="email">Email: </label> <input type="email" id="email" th:field="*{email}"><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br>
-        <label for="password">Password: </label> <input type="password" id="password" th:field="*{password}"><span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span><br>
-        <input type="submit" value="Add Student">
-    </form>
-</div>
+    <div class="container">
+        <!-- header -->
+        <div class="row">
+            <h1 style="margin: auto;">Register</h1>
+        </div>
+        <!-- details -->
+        
+        <!-- name and email -->
+        <form id="reg"  action="#" th:action="@{/users/add}" th:object="${user}" method="post">
+            <div class="row"  style="margin: auto ;">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="fName">First Name :</label>
+                        <input type="text" class="form-control" name="fName" id="fName" placeholder="Jhon" th:field="*{firstName}">
+                        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span><br>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+                
+            <div class="row"  style="margin: auto ;">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="lName">Last Name :</label>
+                            <input type="text" class="form-control" id="lName" placeholder="Doe" th:field="*{lastName}">
+                            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span><br>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+            </div>
 
+            <div class="row"  style="margin: auto ;">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="address">Address :</label></br>
+                        <input type="text" class="form-control" id="address" placeholder="102 xyz street, city, state, Postal code"th:field="*{address}">
+                        <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span><br>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row"  style="margin: auto ;">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com"th:field="*{email}">
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row"  style="margin: auto ;">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="pswd">Password :</label></br>
+                        <input type="password" class="form-control" id="pswd" placeholder="Choose password"th:field="*{password}">
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span><br>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row"  style="margin: auto ;">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="cpswd">Confirm Password :</label></br>
+                        <input type="password" class="form-control" id="cpswd" placeholder="retype your password">
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row"  style="margin: auto ;">
+                <div class="col-sm-4"></div>
+                <div class="COL-sm-1">
+                    <div class="form-group">
+                        <input type="checkbox" class=""  id="agree" placeholder="lbl">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    
+                        <label for="agree">By Checking this box I agree the terms and conditions of the company and website.    </label>
+                    </div>
+                
+                <div class="col-sm-4"></div>
+            </div>
+            <div class="row" style="margin: auto ;">
+                <div class="col-sm-4"></div>
+                <div class="col-l-4">
+                    <input type="button" onclick="enable()" id="btnSubmit" value="Submit">
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+            
+
+            
+        </form>
+        <script type="text/javascript" src="./static/reg.js"></script>
+    </div>
+     
 </body>
 </html>
