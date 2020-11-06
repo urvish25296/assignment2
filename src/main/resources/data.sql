@@ -1,0 +1,1 @@
+insert into user (ID,ADDRESS ,EMAIL ,FIRST_NAME ,IS_ADMIN ,LAST_NAME ,PASSWORD ) values (2,'98 hammersly', 'urvish@gmail.com', 'urvish',True,'Patel','wer')

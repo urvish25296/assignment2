@@ -44,7 +44,7 @@ public class UserController {
     @GetMapping("list")
     public String showAll(Model model){
         model.addAttribute("users",userRepository.findAll());
-        return "index";
+        return "list";
     }
 
     @GetMapping("edit/{id}")
@@ -67,6 +67,9 @@ public class UserController {
 
     @GetMapping("delete/{id}")
     public String deleteUser(@PathVariable("id") long id, Model model){
-        return "";
+        User user = userRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Invalid Student Id: "+id));
+        userRepository.delete(user);
+        model.addAttribute("users",userRepository.findAll());
+        return "list";
     }
 }
